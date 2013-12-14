@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(self_test)
 
+if(NOT ANDROID)
 # Load catkin and all dependencies required for this package
 find_package(catkin REQUIRED diagnostic_msgs diagnostic_updater roscpp rostest)
 
@@ -45,4 +46,4 @@ add_rostest(test/launch/exception_test.launch)
 install(DIRECTORY include/${PROJECT_NAME}/
         DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
 )
-
+endif()
